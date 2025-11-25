@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="SegundoProyectoDI/Views/HomeView.axaml" value="SegundoProyectoDI.Desktop/SegundoProyectoDI.Desktop.csproj" />
+        <entry key="SegundoProyectoDI/Views/LoginView.axaml" value="SegundoProyectoDI.Desktop/SegundoProyectoDI.Desktop.csproj" />
+        <entry key="SegundoProyectoDI/Views/MainView.axaml" value="SegundoProyectoDI.Desktop/SegundoProyectoDI.Desktop.csproj" />
+        <entry key="SegundoProyectoDI/Views/MainWindow.axaml" value="SegundoProyectoDI.Desktop/SegundoProyectoDI.Desktop.csproj" />
+        <entry key="SegundoProyectoDI/Views/NewProductView.axaml" value="SegundoProyectoDI.Desktop/SegundoProyectoDI.Desktop.csproj" />
+        <entry key="SegundoProyectoDI/Views/ProductsView.axaml" value="SegundoProyectoDI.Desktop/SegundoProyectoDI.Desktop.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
