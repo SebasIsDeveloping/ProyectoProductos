@@ -1,11 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using examen2025.Services;
+using SegundoProyectoDI.Services;
 
-namespace examen2025.ViewModels;
+namespace SegundoProyectoDI.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
     
-    [ObservableProperty]
-    private NavigationService navigationService = new();
+    
 }

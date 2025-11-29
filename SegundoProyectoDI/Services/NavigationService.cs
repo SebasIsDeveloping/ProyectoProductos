@@ -63,7 +63,7 @@ public partial class NavigationService: ObservableObject
         MenuItems.Add(newProductItem);
         MenuItems.Add(productsItem);
 
-        NavigateTo(LOGIN_VIEW);
+        NavigateTo(HOME_VIEW);
     }
     
     partial void OnSelectedMenuItemChanged(NavigationViewItem item)

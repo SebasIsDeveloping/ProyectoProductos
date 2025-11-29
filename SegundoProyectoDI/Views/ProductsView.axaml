@@ -2,7 +2,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
              x:Class="SegundoProyectoDI.Views.ProductsView">
-   PPPLIST
+  
+        <Grid >
+            <Grid.Background>
+                <ImageBrush Stretch="UniformToFill" Source="avares://SegundoProyectoDI/Assets/fondoPelis.jpg"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <!-- PRIMERA ROW -->
+            <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Black" Width="900" Margin="0,26,0,0" >
+                <TextBlock TextAlignment="Center" FontSize="40" FontWeight="Bold" Margin="0,20,0,0">Todas las películas</TextBlock>
+                <TextBlock TextAlignment="Center" FontSize="25" TextWrapping="Wrap" Margin="0,20,0,0">Aquí podrás ver las películas que tenemos disponibles</TextBlock>
+            </StackPanel>
+            
+            <!-- SEGUNDA ROW -->
+            <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="Black" Height="550" Width="900"  Margin="0,0,0,27">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        
+                        <!-- LISTA -->
+                        <Border Margin="40, 70,0,0" CornerRadius="5" Padding="10" BorderBrush="White" BorderThickness="5">   
+                            <StackPanel HorizontalAlignment="Center" Height="400" >
+                                <TextBlock TextAlignment="Center" FontSize="40" FontWeight="Bold" >Nueva película</TextBlock>
+                                <TextBlock TextAlignment="Center" FontSize="25" TextWrapping="Wrap" Margin="0,20,0,0">Aquí podrás realizar el alta de una nueva película</TextBlock>
+                                
+                                
+                            </StackPanel>
+                        </Border>   
+            
+                        <!-- BOTONES -->
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center" Width="120" Spacing="50" HorizontalAlignment="Center" Orientation="Vertical" Margin="0,40,0,0">
+                                <Button Classes="light" Content="Aceptar"  ToolTip.Tip="Button with classes &quot;Light&quot;" />
+                                <Button Classes="dark" Content="Cancelar" ToolTip.Tip="Button with classes &quot;Dark&quot;" />
+                                <Button Classes="dark" Content="Cancelar" ToolTip.Tip="Button with classes &quot;Dark&quot;" />
+                        </StackPanel>    
+           
+                    </Grid>  
+            </StackPanel>    
+           
+        </Grid>
 </UserControl>
