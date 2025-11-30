@@ -31,7 +31,18 @@ public class APIService
     
     public async Task CrearProducto(FilmModel film)
     {
-        var jsonProduct = JsonConvert.SerializeObject(film);
+        var finsert = new
+        {
+            Nombre = film.Nombre,
+            Descripcion = film.Descripcion,
+            Categoria = film.Categoria,
+            Fecha = film.Fecha,
+            Bluray = film.Bluray,
+            Cantidad = film.Cantidad,
+            CodBarras = film.CodBarras
+        };
+
+        var jsonProduct = JsonConvert.SerializeObject(finsert);
         var request = new HttpRequestMessage(HttpMethod.Post, "rest/v1/filmsDB")
         {
             Content = new StringContent(jsonProduct, Encoding.UTF8, "application/json")

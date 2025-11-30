@@ -1,10 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using CommunityToolkit.Mvvm.ComponentModel;
 using Newtonsoft.Json;
 
 namespace SegundoProyectoDI.Models;
 
-public class FilmModel
+public class FilmModel : ObservableValidator
 {
     [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
     public int Id { get; set; }
@@ -34,4 +35,11 @@ public class FilmModel
     [Required(ErrorMessage = "La categoría es obligatoria.")]
     [JsonProperty("codBarras")]
     public string CodBarras { get; set; }
+    
+    
+    public bool Validar()
+    {
+        ValidateAllProperties();
+        return !HasErrors;
+    }
 }

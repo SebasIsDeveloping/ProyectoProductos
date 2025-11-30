@@ -17,7 +17,6 @@ public partial class ProductsViewModel : ViewModelBase
     private APIService apiService { get; set; } = new();
     [ObservableProperty] public ObservableCollection<FilmModel> listaLibros = new();
     [ObservableProperty] public ObservableCollection<string> listaCategorias;
-    [ObservableProperty] public FilmModel film = new ();
     [ObservableProperty] public FilmModel selectedFilm = new ();
     [ObservableProperty] public string mensaje = string.Empty;
 
