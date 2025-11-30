@@ -6,6 +6,8 @@
         <entry key="SegundoProyectoDI/App.axaml" value="SegundoProyectoDI.Desktop/SegundoProyectoDI.Desktop.csproj" />
         <entry key="SegundoProyectoDI/Styles/Styles.axaml" value="SegundoProyectoDI.Desktop/SegundoProyectoDI.Desktop.csproj" />
         <entry key="SegundoProyectoDI/Styles/Styles1axaml.axaml" value="SegundoProyectoDI.Desktop/SegundoProyectoDI.Desktop.csproj" />
+        <entry key="SegundoProyectoDI/Views/Dialogs/DeleteDialog.axaml" value="SegundoProyectoDI.Desktop/SegundoProyectoDI.Desktop.csproj" />
+        <entry key="SegundoProyectoDI/Views/Dialogs/EditDialog.axaml" value="SegundoProyectoDI.Desktop/SegundoProyectoDI.Desktop.csproj" />
         <entry key="SegundoProyectoDI/Views/HomeView.axaml" value="SegundoProyectoDI.Desktop/SegundoProyectoDI.Desktop.csproj" />
         <entry key="SegundoProyectoDI/Views/LoginView.axaml" value="SegundoProyectoDI.Desktop/SegundoProyectoDI.Desktop.csproj" />
         <entry key="SegundoProyectoDI/Views/MainView.axaml" value="SegundoProyectoDI.Desktop/SegundoProyectoDI.Desktop.csproj" />
