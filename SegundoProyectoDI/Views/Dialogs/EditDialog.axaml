@@ -2,7 +2,78 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="SegundoProyectoDI.Views.Dialogs.EditDialog">
-    Welcome to Avalonia!
+             xmlns:viewModels="clr-namespace:SegundoProyectoDI.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="450"
+             x:Class="SegundoProyectoDI.Views.Dialogs.EditDialog"
+             x:DataType="viewModels:ProductsViewModel" >
+    
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"  Height="450" Width="700">
+        <TextBlock TextAlignment="Center" FontSize="25" TextWrapping="Wrap" Margin="0,40,0,0">Editar película</TextBlock>
+        <StackPanel HorizontalAlignment="Center" Margin="100,30,0,30"  Spacing="30">
+            <StackPanel Orientation="Horizontal" Spacing="15">
+                <StackPanel Orientation="Vertical" Spacing="2">
+                    <TextBlock Text="Código de barras" FontSize="15" VerticalAlignment="Top" />
+                    <TextBox Watermark="Código" Text="{Binding SelectedFilm.CodBarras}" Width="240" Height="30"
+                             HorizontalAlignment="Center" Background="#FF0B0F12"
+                             Foreground="White" BorderBrush="White" BorderThickness="1" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Spacing="2">
+                    <TextBlock Text="Categoría" FontSize="15" VerticalAlignment="Top" />
+                    <ComboBox Width="240" SelectedIndex="0"
+                              SelectedItem="{Binding SelectedFilm.Categoria}"
+                              ItemsSource="{Binding ListaCategorias}"
+                              HorizontalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Spacing="15">
+                <StackPanel Orientation="Vertical" Spacing="2">
+                    <TextBlock Text="Nombre" FontSize="15" VerticalAlignment="Top" />
+                    <TextBox Watermark="Nombre" Text="{Binding SelectedFilm.Nombre}" Width="240" Height="30"
+                             HorizontalAlignment="Center" Background="#FF0B0F12"
+                             Foreground="White" BorderBrush="White" BorderThickness="1" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Spacing="2">
+                    <TextBlock Text="Fecha de lanzamiento" FontSize="15" VerticalAlignment="Top" />
+                    <CalendarDatePicker Foreground="White"
+                                        Background="#FF0B0F12"
+                                        BorderBrush="White" SelectedDate="{Binding SelectedFilm.Fecha}"
+                                        HorizontalAlignment="Center" 
+                                        Width="240" Height="30"/>
+                </StackPanel>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Spacing="15">
+                <StackPanel Orientation="Vertical" Spacing="2">
+                    <TextBlock Text="Descripcion" FontSize="15" VerticalAlignment="Top" />
+                    <TextBox Watermark="Descripcion" Text="{Binding SelectedFilm.Descripcion}" Width="240" Height="30"
+                             HorizontalAlignment="Center" Background="#FF0B0F12"
+                             Foreground="White" BorderBrush="White" BorderThickness="1" />
+                </StackPanel>
+                
+                <StackPanel Orientation="Vertical" Spacing="2">
+                    <TextBlock Text="Descripcion" FontSize="15" VerticalAlignment="Top" />
+                    <NumericUpDown  Height="30" Value="{Binding SelectedFilm.Cantidad, Mode=TwoWay}" 
+                       BorderBrush="White" BorderThickness="1"  Minimum="1" Maximum="100" Width="92" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Spacing="2" Margin="0,20,0,0">
+                    <CheckBox Content="Blu-Ray" HorizontalAlignment="Center" Width="240" Height="30"
+                              Foreground="White" IsChecked="{Binding SelectedFilm.Bluray}" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        
+        <TextBlock Text="{Binding Mensaje}" HorizontalAlignment="Center" 
+                   Margin="0,0,0,10" Foreground="Red"></TextBlock>
+        
+        <StackPanel Orientation="Horizontal" Spacing="50" HorizontalAlignment="Center">
+             <Button Classes="light" Content="Guardar" ToolTip.Tip="Button with classes &quot;Light&quot;"
+                     Command="{Binding  EditProductCommand}"/>
+             <Button Classes="dark" Content="Cancelar" ToolTip.Tip="Button with classes &quot;Dark&quot;"
+                     Command="{Binding CloseEditDialogCommand}"/>
+        </StackPanel>
+    </StackPanel>   
 </UserControl>

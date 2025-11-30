@@ -29,5 +29,9 @@ public class FilmModel
     public bool Bluray { get; set; }
 
     [JsonProperty("cantidad")]
-    public int Cantidad { get; set; }
+    public int Cantidad { get; set; }    
+    
+    [Required(ErrorMessage = "La categoría es obligatoria.")]
+    [JsonProperty("codBarras")]
+    public string CodBarras { get; set; }
 }

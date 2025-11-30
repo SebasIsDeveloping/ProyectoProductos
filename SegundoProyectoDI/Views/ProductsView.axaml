@@ -94,7 +94,8 @@
                                         CommandParameter="{Binding ElementName=ListBoxProductos, Path=SelectedItem}" />
                                 
                                 <Button Classes="dark" Content="Editar"  Command="{Binding OpenEditDialogCommand}"
-                                        Background="Orange" ToolTip.Tip="Button with classes &quot;dark&quot;" />
+                                        Background="Orange" ToolTip.Tip="Button with classes &quot;dark&quot;" 
+                                        CommandParameter="{Binding ElementName=ListBoxProductos, Path=SelectedItem}"/>
                                 
                         </StackPanel>    
            

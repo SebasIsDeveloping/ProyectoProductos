@@ -7,13 +7,14 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:DataType="viewModels:ProductsViewModel"
              x:Class="SegundoProyectoDI.Views.Dialogs.DeleteDialog">
-    <StackPanel>
-        <TextBlock TextAlignment="Center" FontSize="25" TextWrapping="Wrap" Margin="0,20,0,0">¿Estás seguro de eliminar esta película?</TextBlock>
+    
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock TextAlignment="Center" FontSize="20" TextWrapping="Wrap" Margin="0,20,0,0">¿Estás seguro de eliminar esta película?</TextBlock>
 
-        <StackPanel VerticalAlignment="Center" Width="120" Spacing="50" HorizontalAlignment="Center" Orientation="Vertical" Margin="0,40,0,0">
-            <Button Classes="light" Content="Aceptar" Command="{Binding  DeleteProductCommand}"
+        <StackPanel VerticalAlignment="Center"  Spacing="50" HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,20,0,0">
+            <Button Classes="light" Content="Eliminar" Command="{Binding  DeleteProductCommand}"
                     ToolTip.Tip="Button with classes &quot;Light&quot;" />
-            <Button Classes="dark" Content="Eliminar" Command="{Binding CloseDeleteDialogCommand}"
+            <Button Classes="dark" Content="Cancelar" Command="{Binding CloseDeleteDialogCommand}"
                     ToolTip.Tip="Button with classes &quot;Dark&quot;" />
         </StackPanel>   
     </StackPanel>
