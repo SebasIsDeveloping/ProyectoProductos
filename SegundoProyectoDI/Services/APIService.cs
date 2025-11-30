@@ -33,14 +33,14 @@ public class APIService
     {
         var finsert = new
         {
-            Nombre = film.Nombre,
-            Descripcion = film.Descripcion,
-            Categoria = film.Categoria,
-            Fecha = film.Fecha,
-            Bluray = film.Bluray,
-            Cantidad = film.Cantidad,
-            CodBarras = film.CodBarras
-        };
+            nombre = film.Nombre,
+            descripcion = film.Descripcion,
+            categoria = film.Categoria,
+            fecha = film.Fecha,
+            bluray = film.Bluray,
+            cantidad = film.Cantidad,
+            codBarras = film.CodBarras
+        }; 
 
         var jsonProduct = JsonConvert.SerializeObject(finsert);
         var request = new HttpRequestMessage(HttpMethod.Post, "rest/v1/filmsDB")

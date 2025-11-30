@@ -30,26 +30,15 @@
                             <TextBox Theme="{StaticResource FilledTextBox}" Width="300" assists:TextFieldAssist.Label="Código"
                                      Text="{Binding Film.CodBarras}"/>
                             <ComboBox PlaceholderText="Categoría" Width="300" Background="#1A1A1A" Height="55"
-                                      
+                                      ItemsSource="{Binding ListaCategorias}"
                                       SelectedItem="{Binding Film.Categoria}">
-                                <ComboBoxItem>Terror</ComboBoxItem>
-                                <ComboBoxItem>Acción</ComboBoxItem>
-                                <ComboBoxItem>Comedia</ComboBoxItem>
-                                <ComboBoxItem>Drama</ComboBoxItem>
-                                <ComboBoxItem>Ciencia Ficción</ComboBoxItem>
-                                <ComboBoxItem>Fantasía</ComboBoxItem>
-                                <ComboBoxItem>Romance</ComboBoxItem>
-                                <ComboBoxItem>Animación</ComboBoxItem>
-                                <ComboBoxItem>Misterio</ComboBoxItem>
-                                <ComboBoxItem>Aventura</ComboBoxItem>
-                                <ComboBoxItem>Thriller</ComboBoxItem>
                             </ComboBox>
                         </StackPanel>
                         
                         <StackPanel Orientation="Horizontal" Spacing="20">
                             <TextBox Theme="{StaticResource FilledTextBox}" Width="300" assists:TextFieldAssist.Label="Nombre"
                                      Text="{Binding Film.Nombre}"/>
-                            <DatePicker assists:TextFieldAssist.Label="Fecha de lanzamiento" Width="300" Background="DimGray" />
+                            <CalendarDatePicker HorizontalAlignment="Center" Width="300"  SelectedDate="{Binding Film.Fecha}"/>
                         </StackPanel>
                         
                         <StackPanel Orientation="Horizontal" Spacing="20">

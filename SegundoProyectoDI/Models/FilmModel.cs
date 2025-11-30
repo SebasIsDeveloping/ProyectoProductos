@@ -24,7 +24,7 @@ public class FilmModel : ObservableValidator
 
     [Required(ErrorMessage = "La fecha es obligatoria.")]
     [JsonProperty("fecha")]
-    public DateTime Fecha { get; set; }
+    public DateTime Fecha { get; set; } = DateTime.Today;
 
     [JsonProperty("bluray")]
     public bool Bluray { get; set; }

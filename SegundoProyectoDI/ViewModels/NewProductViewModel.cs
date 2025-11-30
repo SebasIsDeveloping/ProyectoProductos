@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -10,11 +11,37 @@ namespace SegundoProyectoDI.ViewModels;
 public partial class NewProductViewModel : ViewModelBase
 {
     private APIService apiService { get; set; } = new();
+    [ObservableProperty] public ObservableCollection<string> listaCategorias;
     [ObservableProperty] public FilmModel film = new ();
     private NavigationService navigationService;
-    public NewProductViewModel (NavigationService navigationService) { this.navigationService = navigationService; }
-    public NewProductViewModel () { }
+
+    public NewProductViewModel(NavigationService navigationService)
+    {
+        this.navigationService = navigationService;
+        CargarCategorias(); 
+    }
+    public NewProductViewModel()
+    {
+        CargarCategorias(); 
+    }
     
+    private void CargarCategorias()
+    {
+        ListaCategorias = new ObservableCollection<string>()
+        {
+            "Terror"
+            ,"Acción"
+            ,"Comedia"
+            ,"Drama"
+            ,"Ciencia Ficción"
+            ,"Fantasía"
+            ,"Romance"
+            ,"Animación"
+            ,"Misterio"
+            ,"Aventura"
+            ,"Thriller"
+        };
+    }
     [RelayCommand]
     public async Task SaveProduct()
     {   
@@ -26,6 +53,8 @@ public partial class NewProductViewModel : ViewModelBase
             Film = new FilmModel();
         }
     }
+    
+    
     public bool CheckDate()
     {
         if (Film.Fecha > DateTime.Today) return false; 
