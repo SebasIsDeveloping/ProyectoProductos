@@ -66,7 +66,6 @@ public partial class ProductsViewModel : ViewModelBase
         SelectedFilm = film;
     }
     
-        
     [RelayCommand]
     public void GoBack(string tagView)
     {
