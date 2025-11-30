@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using Avalonia.Collections;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SegundoProyectoDI.Models;
@@ -11,40 +13,44 @@ namespace SegundoProyectoDI.ViewModels;
 
 public partial class ProductsViewModel : ViewModelBase
 {
-    private NavigationService navigationService;
+    private NavigationService navigationService;    
+    private APIService apiService { get; set; } = new();
     [ObservableProperty] public ObservableCollection<FilmModel> listaLibros = new();
-    public ProductsViewModel (NavigationService navigationService) { this.navigationService = navigationService; }
+    [ObservableProperty] public FilmModel film = new ();
+    [ObservableProperty] public FilmModel selectedFilm = new ();
 
-    public ProductsViewModel()
+
+    public ProductsViewModel(NavigationService navigationService)
     {
-        GetFilms();
+        this.navigationService = navigationService;
+        
+        _ = InitializeAsync(); 
+    }
+    public ProductsViewModel() { }
+
+    
+    private async Task InitializeAsync()
+    {
+        await GetFilmsAsync(); 
     }
 
-    private void GetFilms()
+    public async Task GetFilmsAsync()
     {
-        FilmModel film = new()
-        {
-            Nombre = "Primera",
-            Descripcion = "Cualquier uso inadecuado o abusivo de herramientas de inteligencia artificial (por ejemplo, fragmentos de código de procedencia dudosa o expresiones que no se correspondan con el nivel esperado) podrá derivar en la realización de un cuestionario de verificación sobre el funcionamiento y la autoría del código presentado. ",
-            Categoria = "Terror",
-            Fecha = DateTime.Today,
-            Bluray = false,
-            Cantidad = 0,
-        };
-        ListaLibros.Add(film);
-        ListaLibros.Add(film);
-        ListaLibros.Add(film);
-        ListaLibros.Add(film);
-        ListaLibros.Add(film);
-        ListaLibros.Add(film);
+        ListaLibros =  await apiService.ObtenerProductos();
     }
-      
+
+    [RelayCommand]
+    public void SetSelectedFilm(FilmModel film)
+    {
+        SelectedFilm = film;
+    }
+    
+        
     [RelayCommand]
     public void GoBack(string tagView)
     {
         navigationService.NavigateTo(tagView);
     }
-        
         
     #region //DIALOGHOST
         // EDIT
@@ -61,17 +67,21 @@ public partial class ProductsViewModel : ViewModelBase
     
         // DELETE
     [RelayCommand]
-    public void OpenDeleteDialog()
+    public void OpenDeleteDialog(FilmModel film)
     {
+        SelectedFilm = film;
         DialogHost.Show(new DeleteDialog(),"DeleteDialog");
     }   
+    
     [RelayCommand]
-     public void DeleteProduct()
-     {
-         DialogHost.Show(new DeleteDialog(),"DeleteDialog");
-     }
+    public async Task DeleteProduct()
+    {  
+        bool success = await apiService.EliminarProducto(SelectedFilm);
+        if (success) GetFilmsAsync();
+        CloseDeleteDialog();
+    }
     [RelayCommand]
-    public void CloseDeleteDialog()
+    public void CloseDeleteDialog() 
     {
         DialogHost.Close("DeleteDialog");
     }

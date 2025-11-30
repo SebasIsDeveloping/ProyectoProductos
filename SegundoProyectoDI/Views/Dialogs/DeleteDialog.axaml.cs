@@ -10,6 +10,5 @@ public partial class DeleteDialog : UserControl
     public DeleteDialog()
     {
         InitializeComponent();
-        DataContext = new DeleteDialogModel();
     }
 }

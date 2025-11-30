@@ -10,6 +10,5 @@ public partial class ProductsView : UserControl
     public ProductsView()
     {
         InitializeComponent();
-        DataContext = new ProductsViewModel();
     }
 }
